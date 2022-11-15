@@ -14,6 +14,8 @@ function App() {
   const [dice2Value, setDice2Value] = useState('?');
   // Number Variables
   const [numberArr, setNumberArr] = useState([1,2,3,4,5,6,7,8,9,10,11,12])
+  // Share Text Content
+  const [text, setText] = useState('');
   // Game State
   const [gameInProgress, setGameInProgress] = useState(true)
   const [pickingNumber, setPickingNumber] = useState(false)
@@ -94,7 +96,7 @@ function App() {
     setGameWon(false)
     setGameLost(false)
     setPickingNumber(false)
-    setText(`Jackpot ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}:`);
+    setText('');
     setGameInProgress(true)
     setNumberArr([1,2,3,4,5,6,7,8,9,10,11,12])
     resetDice()
