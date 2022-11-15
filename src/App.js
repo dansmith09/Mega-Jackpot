@@ -127,7 +127,7 @@ function App() {
     }
   }
 
-  const loseGame = (dice1, dice2) => {
+  const loseGame = () => {
     setTimeout(() => {
       setGameLost(true)
       setGameInProgress(false)

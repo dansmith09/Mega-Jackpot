@@ -22,7 +22,7 @@
   width: 395px;
 }
 h1{
-  margin-top: 40px;
+  margin-top: 20px;
   color: #FFFFF0;
   display: flex;
   justify-content: center;
@@ -48,8 +48,7 @@ h1{
 .diceContainer {
   display: flex;
   justify-content: space-evenly;
-  padding: 30px;
-  padding-top: 15px;
+  padding: 15px;
 }
 .diceContainer > svg{
   width: 90px;
@@ -61,9 +60,9 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 15px;
+  margin: 10px;
   width: 350px;
-  height: 55px;
+  height: 50px;
   border-radius: 10px;
   background-color: #63d7f7;
   border: #63d7f7;
