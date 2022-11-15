@@ -13,10 +13,7 @@ function App() {
   const [dice1Value, setDice1Value] = useState('?');
   const [dice2Value, setDice2Value] = useState('?');
   // Number Variables
-  const [numberArr, setNumberArr] = useState([1,2,3,4,5,6,7,8,9])
-  // Share Text Content
-  let date = new Date();
-  const [text, setText] = useState(`Jackpot ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}:`);
+  const [numberArr, setNumberArr] = useState([1,2,3,4,5,6,7,8,9,10,11,12])
   // Game State
   const [gameInProgress, setGameInProgress] = useState(true)
   const [pickingNumber, setPickingNumber] = useState(false)
@@ -99,64 +96,46 @@ function App() {
     setPickingNumber(false)
     setText(`Jackpot ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}:`);
     setGameInProgress(true)
-    setNumberArr([1,2,3,4,5,6,7,8,9])
+    setNumberArr([1,2,3,4,5,6,7,8,9,10,11,12])
     resetDice()
   }
 
-  const concatToText = (arr) => {
-    if(arr.length > 8) { return }
-    if(!arr) { return }
-    let allNumbers = [1,2,3,4,5,6,7,8,9]
-    let booleanArr = allNumbers.map(num => arr.includes(num))
-    let emojiNumbers = ['1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣']
-    let newLine = '\n'
-    for (let i = 0; i < booleanArr.length; i++) {
-      if (booleanArr[i]) {
-        newLine += emojiNumbers[i]
-      } else {
-        newLine += '🟩'
-      }
+  const generateTextOutput = () => {
+    if(numberArr){
+      let allNumbers = [1,2,3,4,5,6,7,8,9,10,11,12]
+      let booleanArr = allNumbers.map(num => numberArr.includes(num))
+      let count = booleanArr.filter(value => value === false).length;
+      setText(
+        `MegaJackpot ${count}/12
+        ${!booleanArr[0] ? '🟩': '🟥'} ${!booleanArr[1] ? '🟩': '🟥'} ${!booleanArr[2] ? '🟩': '🟥'} 
+        ${!booleanArr[3] ? '🟩': '🟥'} ${!booleanArr[4] ? '🟩': '🟥'} ${!booleanArr[5] ? '🟩': '🟥'} 
+        ${!booleanArr[6] ? '🟩': '🟥'} ${!booleanArr[7] ? '🟩': '🟥'} ${!booleanArr[8] ? '🟩': '🟥'} 
+        ${!booleanArr[9] ? '🟩': '🟥'} ${!booleanArr[10] ? '🟩': '🟥'} ${!booleanArr[11] ? '🟩': '🟥'}`
+      )
+    } else {
+      setText(
+        `MegaJackpot
+        🟩 🟩 🟩
+        🟩 🟩 🟩
+        🟩 🟩 🟩
+        🟩 🟩 🟩
+        🎉🏆🎉🏆🎉🏆
+        🏆WINNER!!🎉`
+      )
     }
-    let oldText = text;
-    let newText = oldText += newLine;
-    setText(newText)
-  }
-
-  const concatLossToText = (arr, dice1, dice2) => {
-    let newLine = '\n';
-    let allNumbers = [1,2,3,4,5,6,7,8,9]
-    let booleanArr = allNumbers.map(num => arr.includes(num))
-    for (let i = 0; i < booleanArr.length; i++) {
-      if (booleanArr[i]) {
-        newLine += '🟥';
-      } else {
-        newLine += '🟩';
-      }
-    }
-    newLine += `\nLast dice roll: 🎲 ${dice1} 🎲 ${dice2}`
-    let oldText = text;
-    let newText = oldText += newLine
-    setText(newText)
-    console.log(newText)
-  }
-
-  const concatWinToText = () => {
-    let oldText = text;
-    let newText = oldText += '\n🏆🎉🎉You Won!!🎉🎉🏆'
-    setText(newText);
   }
 
   const loseGame = (dice1, dice2) => {
     setTimeout(() => {
       setGameLost(true)
       setGameInProgress(false)
-      concatLossToText(numberArr, dice1, dice2);
+      generateTextOutput();
     }, 1500)
   }
   
   const winGame = () => {
     setGameInProgress(false)
-    concatWinToText()
+    generateTextOutput()
     setGameWon(true)
   }
 
@@ -186,10 +165,7 @@ function App() {
     if(!numberArr.length){
       winGame()
     }
-    if(gameInProgress) {
-      concatToText(numberArr)
-    }
-  }, [numberArr, gameInProgress])
+  }, [numberArr])
 
   return (
     <div className={`appContainer ${gameWon ? 'winBG' : ''} ${gameLost ? 'loseBG' : ''}`}>
@@ -245,6 +221,21 @@ function App() {
           className={numberArr.includes(9) ? 'unselected number' : 'selected number'}
           onClick={(e) => {knockDownNumber(parseInt(e.target.innerHTML))}}
           >9</button>
+        <button
+          disabled={disableOrShowNumber(10) ? '' : 'disabled'}
+          className={numberArr.includes(10) ? 'unselected number' : 'selected number'}
+          onClick={(e) => {knockDownNumber(parseInt(e.target.innerHTML))}}
+          >10</button>
+        <button
+          disabled={disableOrShowNumber(11) ? '' : 'disabled'}
+          className={numberArr.includes(11) ? 'unselected number' : 'selected number'}
+          onClick={(e) => {knockDownNumber(parseInt(e.target.innerHTML))}}
+          >11</button>
+        <button
+          disabled={disableOrShowNumber(12) ? '' : 'disabled'}
+          className={numberArr.includes(12) ? 'unselected number' : 'selected number'}
+          onClick={(e) => {knockDownNumber(parseInt(e.target.innerHTML))}}
+          >12</button>
         <br></br>
         <div className='btnContainer'>
           {!gameInProgress ?
