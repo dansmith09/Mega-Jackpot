@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Mega-Jackpot/static/css/main.57f40193.css",
+    "main.js": "/Mega-Jackpot/static/js/main.f655666e.js",
+    "index.html": "/Mega-Jackpot/index.html",
+    "main.57f40193.css.map": "/Mega-Jackpot/static/css/main.57f40193.css.map",
+    "main.f655666e.js.map": "/Mega-Jackpot/static/js/main.f655666e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.57f40193.css",
+    "static/js/main.f655666e.js"
+  ]
+}
