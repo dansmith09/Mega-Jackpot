@@ -103,7 +103,7 @@ function App() {
   }
 
   const generateTextOutput = () => {
-    if(numberArr){
+    if(!gameWon){
       let allNumbers = [1,2,3,4,5,6,7,8,9,10,11,12]
       let booleanArr = allNumbers.map(num => numberArr.includes(num))
       let count = booleanArr.filter(value => value === false).length;
