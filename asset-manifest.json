@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Mega-Jackpot/static/css/main.02dbd61a.css",
-    "main.js": "/Mega-Jackpot/static/js/main.8ea9f79a.js",
+    "main.js": "/Mega-Jackpot/static/js/main.a1d8d7f5.js",
     "index.html": "/Mega-Jackpot/index.html",
     "main.02dbd61a.css.map": "/Mega-Jackpot/static/css/main.02dbd61a.css.map",
-    "main.8ea9f79a.js.map": "/Mega-Jackpot/static/js/main.8ea9f79a.js.map"
+    "main.a1d8d7f5.js.map": "/Mega-Jackpot/static/js/main.a1d8d7f5.js.map"
   },
   "entrypoints": [
     "static/css/main.02dbd61a.css",
-    "static/js/main.8ea9f79a.js"
+    "static/js/main.a1d8d7f5.js"
   ]
 }
