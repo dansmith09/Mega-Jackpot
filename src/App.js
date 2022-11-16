@@ -136,9 +136,9 @@ function App() {
   }
   
   const winGame = () => {
+    setGameWon(true)
     setGameInProgress(false)
     generateTextOutput()
-    setGameWon(true)
   }
 
   const handleClipBoardMessage = () => {
